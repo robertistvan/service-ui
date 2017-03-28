@@ -29,7 +29,7 @@ define(function(require, exports, module) {
     var RegistryInfoModel = Epoxy.Model.extend({
         defaults: {
             uiBuildVersion: '',
-            fullServicesHtml: '',
+            services: {},
             authExtensions: {},
             bugTrackingExtensions: [],
             analyticsExtensions: {},
@@ -63,14 +63,14 @@ define(function(require, exports, module) {
                             self.set({analyticsExtensions: data.API.extensions.analytics});
                         }
                     }
-
-                    var fullServicesHtml = '';
-                    _.each(data, function(service) {
-                       if(service.build && service.build.name && service.build.version) {
-                           fullServicesHtml+= '<span class="service-name">' + service.build.name + ': </span><span>' + service.build.version + ';</span>'
-                       }
-                    });
-                    self.set({fullServicesHtml: fullServicesHtml});
+                    self.set({services: data});
+                    // var fullServicesHtml = '';
+                    // _.each(data, function(service) {
+                    //    if(service.build && service.build.name && service.build.version) {
+                    //        fullServicesHtml+= '<span class="service-name">' + service.build.name + ': </span><span>' + service.build.version + ';</span>'
+                    //    }
+                    // });
+                    // self.set({fullServicesHtml: fullServicesHtml});
                     self.ready.resolve();
                 })
                 .fail(function(){

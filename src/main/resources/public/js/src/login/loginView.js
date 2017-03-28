@@ -45,7 +45,10 @@ define(function(require, exports, module) {
         },
 
         bindings: {
-            '[data-js-build-versions]': 'html: fullServicesHtml',
+            // '[data-js-build-versions]': 'html: fullServicesHtml',
+        },
+        computeds: {
+
         },
 
         initialize: function(options) {
@@ -90,6 +93,21 @@ define(function(require, exports, module) {
             } else {
                 this.openLogin();
             }
+            this.renderServiceVersions();
+        },
+
+        renderServiceVersions: function() {
+            var self = this;
+            $.ajax({
+                url: '//evbyminsd6293.minsk.epam.com:8081/versions',
+                dataType: 'jsonp',
+                jsonp: 'jsonp',
+                crossDomain: true,
+                async: true,
+            })
+                .done(function(data) {
+                    console.dir(data);
+                })
         },
 
         render: function() {
