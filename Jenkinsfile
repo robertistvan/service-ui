@@ -14,7 +14,7 @@ node {
 
             stage('Build Server') {
                 // Export environment variables pointing to the directory where Go was installed
-                docker.image('golang:1.8.1:onbuild').inside("-u root" +
+                docker.image('golang:1.8.1-onbuild').inside("-u root" +
                         " -v ${env.WORKSPACE}:/usr/src/github.com/reportportal " +
                         "-w /usr/src/github.com/reportportal " +
                         "-e GOPATH:/usr/src/github.com/reportportal") {
