@@ -1,7 +1,7 @@
 #!groovy
 
 node {
-       dir('src/github.com/reportportal') {
+       dir('') {
 
            checkout scm
 
@@ -15,7 +15,9 @@ node {
 
             stage('Build Server') {
                 // Export environment variables pointing to the directory where Go was installed
-                docker.image('golang:1.8.1').inside('-u root') {
+                docker.image('golang:1.8.1').inside("-u root" +
+                        " -v ${env.WORKSPACE}:/usr/src/github.com/reportportal ") {
+
                      sh 'echo $GOROOT'
                      sh 'bash -c "make build-server"'
                 }
