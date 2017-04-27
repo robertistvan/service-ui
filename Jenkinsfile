@@ -26,7 +26,9 @@ node {
             }
 
             stage('Build Docker Image') {
-                sh 'make build-image'
+                withEnv(["IMAGE_POSTFIX=dev-golang"]) {
+                    sh 'make build-image'
+                }
             }
 
         }
