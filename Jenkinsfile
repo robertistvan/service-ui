@@ -2,8 +2,6 @@
 
 node {
 
-           checkout scm
-
            stage('Checkout'){
                 checkout scm
                 sh 'git checkout golang-docker'
