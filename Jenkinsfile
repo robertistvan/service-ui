@@ -26,7 +26,9 @@ node {
             }
 
             stage('Build Docker Image') {
-                 sh 'make build-image'
+                sh 'make build-image'
+            }
+
         }
 }
 
