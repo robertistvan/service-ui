@@ -10,15 +10,11 @@ node {
                 sh 'git pull'
             }
 
-            stage('Build UI') {
-                docker.image('node:onbuild').inside('-u root') {
-                       sh 'make build-statics'
-                }
-            }
+
 
             stage('Build Server') {
                 // Export environment variables pointing to the directory where Go was installed
-                docker.image('golang:1.8.1').inside {
+                docker.image('golang:1.8.1').inside('-u root') {
                      sh 'echo $GOROOT'
                      sh 'bash -c "make build-server"'
                 }
