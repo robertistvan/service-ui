@@ -20,7 +20,7 @@ node {
                 // Export environment variables pointing to the directory where Go was installed
                 docker.image('golang:1.8.1').inside {
                      sh 'echo $GOROOT'
-                     sh 'make build-server'
+                     sh 'bash -c make build-server'
                 }
             }
 
