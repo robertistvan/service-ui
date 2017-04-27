@@ -18,6 +18,7 @@ node {
                      sh 'echo $GOPATH'
                      sh 'echo $GOROOT'
                      sh 'ls -la'
+                     sh 'ls -la src'
                      sh 'make build-server'
                 }
             }
