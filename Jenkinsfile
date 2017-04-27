@@ -16,8 +16,6 @@ node {
                      sh 'echo $GOPATH'
                      sh 'echo $GOROOT'
                      sh 'ls -la'
-                     sh 'ls -la src/github.com'
-                     sh 'ls -la src/github.com/reportportal'
                      sh 'make build-server'
                 }
             }
