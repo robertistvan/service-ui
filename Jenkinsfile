@@ -6,7 +6,7 @@ node {
 
            stage('Checkout'){
                 checkout scm
-                sh 'git checkout golang'
+                sh 'git checkout golang-docker'
                 sh 'git pull'
             }
 
