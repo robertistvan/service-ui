@@ -19,6 +19,7 @@ node {
                      sh 'cd /usr/src/github.com/reportportal'
                      sh 'echo $GOPATH'
                      sh 'echo $GOROOT'
+                     sh 'ls -la'
                      sh 'bash -c "make build-server"'
                 }
             }
