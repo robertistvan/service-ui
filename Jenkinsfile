@@ -12,7 +12,9 @@ node {
 
             stage('Build Server') {
                 // Export environment variables pointing to the directory where Go was installed
-                  docker.image('golang:1.8.1').withRun("--rm -v ${env.WORKSPACE}:/usr/src/github.com/reportportal -c make build-server")
+                  docker.image('golang:1.8.1').withRun("--rm -v ${env.WORKSPACE}:/usr/src/github.com/reportportal -c make build-server") { c->
+                        sh 'make build-server'
+                    }
 
             }
 }
