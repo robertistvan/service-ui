@@ -1,6 +1,7 @@
 #!groovy
 
 node {
+       dir('src/github.com/reportportal') {
 
            checkout scm
 
@@ -20,6 +21,6 @@ node {
                 }
             }
 
-
+        }
 }
 
