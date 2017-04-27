@@ -22,9 +22,8 @@ node {
                       try {
                         sh 'PATH=$PATH:$GOPATH/bin && make build-server'
                       } finally {
-                          archiveArtifacts artifacts: 'build/*.*'
+                          archiveArtifacts artifacts: 'bin/*.*'
                       }
-
                  }
             }
         }
