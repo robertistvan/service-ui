@@ -1,6 +1,7 @@
 #!groovy
 
 node {
+       dir('src/github.com/reportportal') {
 
            stage('Checkout'){
                 checkout scm
@@ -17,6 +18,6 @@ node {
                      sh 'make build-server'
                 }
             }
-
+        }
 }
 
