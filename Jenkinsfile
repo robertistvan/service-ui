@@ -12,7 +12,7 @@ node {
             }
 
             stage('Build UI') {
-                withEnv(["PATH+NODE=${tool name: 'node-7.9.0', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'}/bin"]) {
+                docker.image('node').inside {
                     sh 'make build-statics'
                 }
             }
@@ -22,7 +22,7 @@ node {
                 def root = tool name: 'go-1.8.1', type: 'go'
 
                 // Export environment variables pointing to the directory where Go was installed
-                withEnv(["GOROOT=${root}","PATH+GO=${root}/bin","GOPATH=${env.WORKSPACE}","PATH+GOPATH=${env.WORKSPACE}/bin"]) {
+                docker.image('golang:onbuild').inside {
                      sh 'echo $GOROOT'
                      sh 'make build-server'
                 }
