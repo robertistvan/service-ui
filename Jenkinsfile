@@ -11,7 +11,7 @@ node {
             }
 
             stage('Build UI') {
-                docker.image('node:onbuild').inside {
+                docker.image('node:onbuild').inside('-u root') {
                        sh 'make build-statics'
                 }
             }
