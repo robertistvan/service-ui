@@ -1,7 +1,6 @@
 #!groovy
 
 node {
-       dir('') {
 
            checkout scm
 
@@ -24,6 +23,5 @@ node {
                 }
             }
 
-        }
 }
 
