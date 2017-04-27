@@ -17,7 +17,7 @@ node {
                 docker.image('golang:1.8.1').inside("-u root" +
                         " -v ${env.WORKSPACE}:/usr/src/github.com/reportportal " +
                         "-w /usr/src/github.com/reportportal " +
-                        "-e $GOPATH":/usr") {
+                        "-e $GOPATH:/usr") {
                      sh 'echo $GOPATH'
                      sh 'echo $GOROOT'
                      sh 'ls -la'
