@@ -11,19 +11,8 @@ node {
             }
 
             stage('Build UI') {
-                docker.image('node').inside {
-                    withEnv([
-                            /* Override the npm cache directory to avoid: EACCES: permission denied, mkdir '/.npm' */
-                            'npm_config_cache=npm-cache',
-                            /* set home to our current directory because other bower
-                            * nonsense breaks with HOME=/, e.g.:
-                            * EACCES: permission denied, mkdir '/.config'
-                            */
-                            'HOME=.',
-                        ]) {
-                                sh 'make build-statics'
-                        }
-
+                docker.image('node:onbuild').inside {
+                       sh 'make build-statics'
                 }
             }
 
