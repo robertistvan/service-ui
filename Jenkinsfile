@@ -20,7 +20,7 @@ node {
                  // Export environment variables pointing to the directory where Go was installed
                  docker.image('golang:1.8.1').inside("-u root -e GOPATH=${env.WORKSPACE}")  {
                         sh 'PATH=$PATH:$GOPATH/bin && make build-server'
-                        archiveArtifacts artifacts: 'bin/*.*'
+                        archiveArtifacts artifacts: 'bin/*'
                  }
             }
         }
