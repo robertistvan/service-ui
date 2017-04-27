@@ -2,7 +2,6 @@
 
 node {
 
-       dir('src/github.com/reportportal') {
            checkout scm
 
            stage('Checkout'){
@@ -27,7 +26,7 @@ node {
                      sh 'make build-server'
                 }
             }
-       }
+
 
 }
 
