@@ -16,7 +16,7 @@ node {
                 // Export environment variables pointing to the directory where Go was installed
                 docker.image('golang:1.8.1').inside("-u root" +
                         " -v ${env.WORKSPACE}:/usr/src/github.com/reportportal " +
-                        "-w /usr/src/github.com/reportportal " + "
+                        "-w /usr/src/github.com/reportportal " +
                         "-e $GOPATH":/usr") {
                      sh 'echo $GOPATH'
                      sh 'echo $GOROOT'
