@@ -24,6 +24,9 @@ node {
                  archiveArtifacts artifacts: 'bin/*'
 
             }
+
+            stage('Build Docker Image') {
+                 sh 'make build-image'
         }
 }
 
