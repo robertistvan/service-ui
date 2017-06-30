@@ -2,6 +2,7 @@
 eureka:
   instance:
     hostname: ${HOSTNAME:ui}
+    preferIpAddress: ${PREFER_IP:false}
   client:
     serviceUrl:
       defaultZone: http://${REGISTRY_HOST:registry}:${SERVICE_REGISTRY_PORT:8761}/eureka/
@@ -13,4 +14,4 @@ spring:
       host: consul
       discovery:
         hostname: ${HOSTNAME:ui}
-        prefer-ip-address: ${PREFER_IP:false}
+        prefer-ip-address: false
