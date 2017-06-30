@@ -4,7 +4,7 @@ eureka:
     hostname: ${HOSTNAME:ui}
   client:
     serviceUrl:
-      defaultZone: http://registry:8761/eureka/
+      defaultZone: http://${reportportal.eureka.hostname:registry}:8761/eureka/
 
 
 spring:
@@ -13,4 +13,4 @@ spring:
       host: consul
       discovery:
         hostname: ${HOSTNAME:ui}
-        prefer-ip-address: false
+        prefer-ip-address: ${reportportal.discovery.prefer_ip:false}
